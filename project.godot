@@ -1,0 +1,68 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Node",
+"class": "GameJoltAPIPromise",
+"language": "GDScript",
+"path": "res://addons/gamejolt_api/gamejolt_api_promise/GameJoltAPIPromise.gd"
+}, {
+"base": "HTTPRequest",
+"class": "GameJoltAPIRequest",
+"language": "GDScript",
+"path": "res://addons/gamejolt_api/gamejolt_api_request/GameJoltAPIRequest.gd"
+} ]
+_global_script_class_icons={
+"GameJoltAPIPromise": "",
+"GameJoltAPIRequest": ""
+}
+
+[application]
+
+config/name="RockPaperLizards"
+run/main_scene="res://MainScene.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+GameManager="*res://GameManager.gd"
+GameJoltAPI="*res://addons/gamejolt_api/GameJoltAPI.tscn"
+
+[display]
+
+window/snapping/use_gpu_pixel_snap=false
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/gamejolt_api/plugin.cfg" )
+
+[input]
+
+ui_accept={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777221,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777222,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+
+[network]
+
+ssl/certificates="res://addons/gamejolt_api/ssl/ca-certificates.crt"
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+2d/options/use_nvidia_rect_flicker_workaround=true
+2d/snapping/use_gpu_pixel_snap=true
+environment/default_environment="res://default_env.tres"

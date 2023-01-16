@@ -1,0 +1,193 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://PlayerPanel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://TitleScreen.tscn" type="PackedScene" id=2]
+[ext_resource path="res://findopponent.png" type="Texture" id=3]
+[ext_resource path="res://gamebkg.png" type="Texture" id=4]
+[ext_resource path="res://GameStats.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ff-forward.tres" type="DynamicFont" id=6]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 3 )
+region = Rect2( 128, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 3 )
+region = Rect2( 256, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 3 )
+region = Rect2( 384, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 3 )
+region = Rect2( 512, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 3 )
+region = Rect2( 640, 0, 128, 128 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 1 ) ],
+"loop": false,
+"name": "default",
+"speed": 3.0
+} ]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Bkg" type="TextureRect" parent="."]
+margin_left = 256.0
+margin_top = 122.0
+margin_right = 768.0
+margin_bottom = 429.0
+mouse_filter = 2
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 256, 128 )
+anchor_mode = 0
+current = true
+zoom = Vector2( 0.5, 0.5 )
+
+[node name="RoundLabel" type="Label" parent="."]
+margin_left = 464.0
+margin_top = 148.0
+margin_right = 560.0
+margin_bottom = 188.0
+custom_fonts/font = ExtResource( 6 )
+text = "ROUND:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResultText" type="Label" parent="."]
+margin_left = 432.0
+margin_top = 194.0
+margin_right = 592.0
+margin_bottom = 234.0
+custom_fonts/font = ExtResource( 6 )
+text = " "
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AdvanceButton" type="Button" parent="."]
+visible = false
+margin_left = 480.0
+margin_top = 384.0
+margin_right = 546.0
+margin_bottom = 404.0
+custom_fonts/font = ExtResource( 6 )
+text = "Advance"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewGameButton" type="Button" parent="."]
+visible = false
+margin_left = 472.0
+margin_top = 384.0
+margin_right = 554.0
+margin_bottom = 404.0
+custom_fonts/font = ExtResource( 6 )
+text = "New Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="P1Panel" parent="." instance=ExtResource( 1 )]
+margin_left = 305.0
+margin_top = 339.0
+margin_right = 305.0
+margin_bottom = 339.0
+
+[node name="P2Panel" parent="." instance=ExtResource( 1 )]
+margin_left = 582.0
+margin_top = 339.0
+margin_right = 590.0
+margin_bottom = 339.0
+
+[node name="NameInput" type="LineEdit" parent="."]
+margin_left = 472.0
+margin_top = 352.0
+margin_right = 552.0
+margin_bottom = 376.0
+custom_fonts/font = ExtResource( 6 )
+align = 1
+max_length = 15
+placeholder_text = "enter name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DrawLoc" type="Control" parent="."]
+margin_left = 384.0
+margin_top = 192.0
+margin_right = 640.0
+margin_bottom = 320.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="P1Title" type="Label" parent="."]
+visible = false
+margin_left = 376.0
+margin_top = 402.0
+margin_right = 448.0
+margin_bottom = 434.0
+custom_fonts/font = ExtResource( 6 )
+text = "The Famous"
+align = 1
+
+[node name="OpponentSearch" type="Control" parent="."]
+visible = false
+margin_left = 448.0
+margin_top = 177.0
+margin_right = 576.0
+margin_bottom = 337.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="Label" parent="OpponentSearch"]
+margin_left = -40.0
+margin_top = 24.0
+margin_right = 168.0
+margin_bottom = 56.0
+custom_fonts/font = ExtResource( 6 )
+text = "Searching For Opponent"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="OpponentSearch"]
+position = Vector2( 64, 92 )
+frames = SubResource( 7 )
+__meta__ = {
+"_editor_description_": "			"
+}
+
+[node name="GameStats" parent="." instance=ExtResource( 5 )]
+margin_left = 264.0
+margin_top = 136.0
+margin_right = 264.0
+margin_bottom = 136.0
+
+[node name="TitleScreen" parent="." instance=ExtResource( 2 )]
+margin_left = 192.0
+margin_top = 120.0
+margin_right = 832.0
+margin_bottom = 480.0

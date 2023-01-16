@@ -1,0 +1,347 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://PlayerPanel.gd" type="Script" id=1]
+[ext_resource path="res://wateratk.png" type="Texture" id=2]
+[ext_resource path="res://fireatk.png" type="Texture" id=3]
+[ext_resource path="res://firedef.png" type="Texture" id=4]
+[ext_resource path="res://waterdef.png" type="Texture" id=5]
+[ext_resource path="res://grassdef.png" type="Texture" id=6]
+[ext_resource path="res://grassatk.png" type="Texture" id=7]
+[ext_resource path="res://ElementPlaceholder.png" type="Texture" id=8]
+[ext_resource path="res://health.png" type="Texture" id=9]
+[ext_resource path="res://statsbkg.png" type="Texture" id=10]
+[ext_resource path="res://ff-forward.tres" type="DynamicFont" id=11]
+
+[sub_resource type="Theme" id=1]
+
+[node name="PlayerPanel" type="TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -896.0
+margin_bottom = -520.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = -6.0
+margin_top = -7.0
+margin_right = 144.0
+margin_bottom = 81.0
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 72.0
+margin_right = 136.0
+margin_bottom = 64.0
+custom_constants/separation = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 64.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 0, 20 )
+custom_fonts/font = ExtResource( 11 )
+text = "Player"
+align = 1
+valign = 1
+clip_text = true
+percent_visible = -0.166667
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+margin_top = 26.0
+margin_right = 64.0
+margin_bottom = 58.0
+rect_min_size = Vector2( 58, 32 )
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+
+[node name="StatPanel" type="VBoxContainer" parent="."]
+margin_left = 3.0
+margin_right = 69.0
+margin_bottom = 76.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stats" type="GridContainer" parent="StatPanel"]
+margin_right = 66.0
+margin_bottom = 56.0
+custom_constants/hseparation = 10
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FAtk" type="Control" parent="StatPanel/Stats"]
+margin_right = 28.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 28, 16 )
+
+[node name="FAtk" type="HBoxContainer" parent="StatPanel/Stats/FAtk"]
+margin_right = 28.0
+margin_bottom = 16.0
+theme = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="StatPanel/Stats/FAtk/FAtk"]
+margin_right = 16.0
+margin_bottom = 16.0
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="StatPanel/Stats/FAtk/FAtk"]
+margin_left = 20.0
+margin_top = 5.0
+margin_right = 26.0
+margin_bottom = 16.0
+size_flags_vertical = 12
+custom_fonts/font = ExtResource( 11 )
+text = "0"
+
+[node name="ColorRect" type="ColorRect" parent="StatPanel/Stats/FAtk"]
+visible = false
+show_behind_parent = true
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 40.0
+margin_bottom = 18.0
+color = Color( 0.290196, 0.427451, 0.25098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FDef" type="Control" parent="StatPanel/Stats"]
+margin_left = 38.0
+margin_right = 66.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 28, 16 )
+
+[node name="FDef" type="HBoxContainer" parent="StatPanel/Stats/FDef"]
+margin_right = 28.0
+margin_bottom = 16.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="StatPanel/Stats/FDef/FDef"]
+margin_right = 16.0
+margin_bottom = 16.0
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="StatPanel/Stats/FDef/FDef"]
+margin_left = 20.0
+margin_top = 5.0
+margin_right = 26.0
+margin_bottom = 16.0
+size_flags_vertical = 12
+custom_fonts/font = ExtResource( 11 )
+text = "0"
+
+[node name="ColorRect" type="ColorRect" parent="StatPanel/Stats/FDef"]
+visible = false
+show_behind_parent = true
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 32.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 32, 16 )
+color = Color( 0.290196, 0.427451, 0.25098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WAtk" type="Control" parent="StatPanel/Stats"]
+margin_top = 20.0
+margin_right = 28.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 28, 16 )
+
+[node name="WAtk" type="HBoxContainer" parent="StatPanel/Stats/WAtk"]
+margin_right = 32.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 32, 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="StatPanel/Stats/WAtk/WAtk"]
+margin_right = 16.0
+margin_bottom = 16.0
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="StatPanel/Stats/WAtk/WAtk"]
+margin_left = 20.0
+margin_top = 5.0
+margin_right = 26.0
+margin_bottom = 16.0
+size_flags_vertical = 12
+custom_fonts/font = ExtResource( 11 )
+text = "0"
+
+[node name="ColorRect" type="ColorRect" parent="StatPanel/Stats/WAtk"]
+visible = false
+show_behind_parent = true
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 40.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 32, 16 )
+color = Color( 0.290196, 0.427451, 0.25098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WDef" type="Control" parent="StatPanel/Stats"]
+margin_left = 38.0
+margin_top = 20.0
+margin_right = 66.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 28, 16 )
+
+[node name="WDef" type="HBoxContainer" parent="StatPanel/Stats/WDef"]
+margin_right = 28.0
+margin_bottom = 16.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="StatPanel/Stats/WDef/WDef"]
+margin_right = 16.0
+margin_bottom = 16.0
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="StatPanel/Stats/WDef/WDef"]
+margin_left = 20.0
+margin_top = 5.0
+margin_right = 26.0
+margin_bottom = 16.0
+size_flags_vertical = 12
+custom_fonts/font = ExtResource( 11 )
+text = "0"
+
+[node name="ColorRect" type="ColorRect" parent="StatPanel/Stats/WDef"]
+visible = false
+show_behind_parent = true
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 32.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 28, 16 )
+color = Color( 0.290196, 0.427451, 0.25098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GAtk" type="Control" parent="StatPanel/Stats"]
+margin_top = 40.0
+margin_right = 28.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 28, 16 )
+
+[node name="GAtk" type="HBoxContainer" parent="StatPanel/Stats/GAtk"]
+margin_right = 28.0
+margin_bottom = 16.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="StatPanel/Stats/GAtk/GAtk"]
+margin_right = 16.0
+margin_bottom = 16.0
+texture = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="StatPanel/Stats/GAtk/GAtk"]
+margin_left = 20.0
+margin_top = 5.0
+margin_right = 26.0
+margin_bottom = 16.0
+size_flags_vertical = 12
+custom_fonts/font = ExtResource( 11 )
+text = "0"
+
+[node name="ColorRect" type="ColorRect" parent="StatPanel/Stats/GAtk"]
+visible = false
+show_behind_parent = true
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 40.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 28, 16 )
+color = Color( 0.290196, 0.427451, 0.25098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GDef" type="Control" parent="StatPanel/Stats"]
+margin_left = 38.0
+margin_top = 40.0
+margin_right = 66.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 28, 16 )
+
+[node name="GDef" type="HBoxContainer" parent="StatPanel/Stats/GDef"]
+margin_right = 28.0
+margin_bottom = 16.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="StatPanel/Stats/GDef/GDef"]
+margin_right = 16.0
+margin_bottom = 16.0
+texture = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="StatPanel/Stats/GDef/GDef"]
+margin_left = 20.0
+margin_top = 5.0
+margin_right = 26.0
+margin_bottom = 16.0
+size_flags_vertical = 12
+custom_fonts/font = ExtResource( 11 )
+text = "0"
+
+[node name="ColorRect" type="ColorRect" parent="StatPanel/Stats/GDef"]
+visible = false
+show_behind_parent = true
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 32.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 28, 16 )
+color = Color( 0.290196, 0.427451, 0.25098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health" type="HBoxContainer" parent="StatPanel"]
+margin_top = 60.0
+margin_right = 66.0
+margin_bottom = 76.0
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="StatPanel/Health"]
+margin_left = 20.0
+margin_right = 36.0
+margin_bottom = 16.0
+texture = ExtResource( 9 )
+
+[node name="Label" type="Label" parent="StatPanel/Health"]
+margin_left = 40.0
+margin_top = 5.0
+margin_right = 46.0
+margin_bottom = 16.0
+size_flags_vertical = 12
+custom_fonts/font = ExtResource( 11 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}

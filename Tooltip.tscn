@@ -1,0 +1,224 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Tooltip.gd" type="Script" id=1]
+[ext_resource path="res://tooltipbkg.png" type="Texture" id=2]
+[ext_resource path="res://wateratk.png" type="Texture" id=3]
+[ext_resource path="res://fireatk.png" type="Texture" id=4]
+[ext_resource path="res://firedef.png" type="Texture" id=5]
+[ext_resource path="res://waterdef.png" type="Texture" id=6]
+[ext_resource path="res://grassdef.png" type="Texture" id=7]
+[ext_resource path="res://grassatk.png" type="Texture" id=8]
+[ext_resource path="res://health.png" type="Texture" id=9]
+
+[node name="Tooltip" type="Popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -874.0
+margin_bottom = -520.0
+rect_min_size = Vector2( 150, 75 )
+mouse_filter = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="N" type="NinePatchRect" parent="."]
+margin_right = 150.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 150, 75 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="M" type="MarginContainer" parent="N"]
+margin_right = 150.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 150, 75 )
+mouse_filter = 2
+custom_constants/margin_top = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="V" type="VBoxContainer" parent="N/M"]
+margin_top = 4.0
+margin_right = 150.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 100, 75 )
+mouse_filter = 2
+custom_constants/separation = 1
+
+[node name="ItemName" type="Label" parent="N/M/V"]
+margin_right = 150.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 125, 14 )
+text = "<Item Name>"
+align = 1
+valign = 1
+
+[node name="CenterContainer" type="HBoxContainer" parent="N/M/V"]
+margin_top = 15.0
+margin_right = 150.0
+margin_bottom = 71.0
+mouse_filter = 2
+size_flags_vertical = 0
+alignment = 1
+
+[node name="Stats" type="GridContainer" parent="N/M/V/CenterContainer"]
+margin_left = 29.0
+margin_right = 89.0
+margin_bottom = 56.0
+mouse_filter = 2
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FAtk" type="HBoxContainer" parent="N/M/V/CenterContainer/Stats"]
+margin_right = 28.0
+margin_bottom = 16.0
+mouse_filter = 2
+
+[node name="Icon" type="TextureRect" parent="N/M/V/CenterContainer/Stats/FAtk"]
+margin_right = 16.0
+margin_bottom = 16.0
+mouse_filter = 2
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="N/M/V/CenterContainer/Stats/FAtk"]
+margin_left = 20.0
+margin_top = 1.0
+margin_right = 28.0
+margin_bottom = 15.0
+text = "0"
+
+[node name="FDef" type="HBoxContainer" parent="N/M/V/CenterContainer/Stats"]
+margin_left = 32.0
+margin_right = 60.0
+margin_bottom = 16.0
+mouse_filter = 2
+
+[node name="Icon" type="TextureRect" parent="N/M/V/CenterContainer/Stats/FDef"]
+margin_right = 16.0
+margin_bottom = 16.0
+mouse_filter = 2
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="N/M/V/CenterContainer/Stats/FDef"]
+margin_left = 20.0
+margin_top = 1.0
+margin_right = 28.0
+margin_bottom = 15.0
+text = "0"
+
+[node name="WAtk" type="HBoxContainer" parent="N/M/V/CenterContainer/Stats"]
+margin_top = 20.0
+margin_right = 28.0
+margin_bottom = 36.0
+mouse_filter = 2
+
+[node name="Icon" type="TextureRect" parent="N/M/V/CenterContainer/Stats/WAtk"]
+margin_right = 16.0
+margin_bottom = 16.0
+mouse_filter = 2
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="N/M/V/CenterContainer/Stats/WAtk"]
+margin_left = 20.0
+margin_top = 1.0
+margin_right = 28.0
+margin_bottom = 15.0
+text = "0"
+
+[node name="WDef" type="HBoxContainer" parent="N/M/V/CenterContainer/Stats"]
+margin_left = 32.0
+margin_top = 20.0
+margin_right = 60.0
+margin_bottom = 36.0
+mouse_filter = 2
+
+[node name="Icon" type="TextureRect" parent="N/M/V/CenterContainer/Stats/WDef"]
+margin_right = 16.0
+margin_bottom = 16.0
+mouse_filter = 2
+texture = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="N/M/V/CenterContainer/Stats/WDef"]
+margin_left = 20.0
+margin_top = 1.0
+margin_right = 28.0
+margin_bottom = 15.0
+text = "0"
+
+[node name="GAtk" type="HBoxContainer" parent="N/M/V/CenterContainer/Stats"]
+margin_top = 40.0
+margin_right = 28.0
+margin_bottom = 56.0
+mouse_filter = 2
+
+[node name="Icon" type="TextureRect" parent="N/M/V/CenterContainer/Stats/GAtk"]
+margin_right = 16.0
+margin_bottom = 16.0
+mouse_filter = 2
+texture = ExtResource( 8 )
+
+[node name="Label" type="Label" parent="N/M/V/CenterContainer/Stats/GAtk"]
+margin_left = 20.0
+margin_top = 1.0
+margin_right = 28.0
+margin_bottom = 15.0
+text = "0"
+
+[node name="GDef" type="HBoxContainer" parent="N/M/V/CenterContainer/Stats"]
+margin_left = 32.0
+margin_top = 40.0
+margin_right = 60.0
+margin_bottom = 56.0
+mouse_filter = 2
+
+[node name="Icon" type="TextureRect" parent="N/M/V/CenterContainer/Stats/GDef"]
+margin_right = 16.0
+margin_bottom = 16.0
+mouse_filter = 2
+texture = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="N/M/V/CenterContainer/Stats/GDef"]
+margin_left = 20.0
+margin_top = 1.0
+margin_right = 28.0
+margin_bottom = 15.0
+text = "0"
+
+[node name="CenterContainer" type="CenterContainer" parent="N/M/V/CenterContainer"]
+margin_left = 93.0
+margin_right = 121.0
+margin_bottom = 56.0
+mouse_filter = 2
+
+[node name="Health" type="HBoxContainer" parent="N/M/V/CenterContainer/CenterContainer"]
+margin_top = 20.0
+margin_right = 28.0
+margin_bottom = 36.0
+mouse_filter = 2
+size_flags_vertical = 0
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="N/M/V/CenterContainer/CenterContainer/Health"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+mouse_filter = 2
+texture = ExtResource( 9 )
+
+[node name="Label" type="Label" parent="N/M/V/CenterContainer/CenterContainer/Health"]
+margin_left = 20.0
+margin_top = 1.0
+margin_right = 28.0
+margin_bottom = 15.0
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
